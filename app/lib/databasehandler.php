@@ -29,7 +29,7 @@ class DatabaseHandler
             return $pdo;
         } catch (\PDOException $e) {
             echo "Error: " . $e->getMessage();
-            die()
+            die();
         }
     }
 }
