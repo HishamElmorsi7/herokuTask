@@ -5,10 +5,18 @@ class DatabaseHandler
 {
 
     // Database handler attributes
-    $host = getenv('DB_HOST');
-    $name = getenv('USER');
-    $pwd = getenv('PWD');
-    $dbname = getenv('DB_NAME');
+    private $host;
+    private $name;
+    private $pwd;
+    private $dbname;
+
+    public function __construct()
+    {
+        $this->host = getenv('DB_HOST');
+        $this->name = getenv('USER');
+        $this->pwd = getenv('PWD');
+        $this->dbname = getenv('DB_NAME');
+    }
 
     public function connect()
     {
