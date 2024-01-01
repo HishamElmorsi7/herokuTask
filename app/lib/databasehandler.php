@@ -28,21 +28,8 @@ class DatabaseHandler
             $pdo->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
             return $pdo;
         } catch (\PDOException $e) {
-
-            
-            // Check if the error is related to "MySQL server has gone away"
-            if ($e->getCode() == 2006) {
-                // Reconnect and retry the operation
-                $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
-                // Retry the failed operation
-            } else {
-                // Handle other types of errors
-                echo "Error: " . $e->getMessage();
-                die()
-            }
-
-            
-
+            echo "Error: " . $e->getMessage();
+            die()
         }
     }
 }
