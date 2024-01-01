@@ -20,7 +20,7 @@ class DatabaseHandler
 
     public function connect()
     {
-        $dns = "mysql:host=" . $this->host . ";dbname=" . $this->dbname;
+        $dns = "pgsql:host=" . $this->host . ";dbname=" . $this->dbname;
 
         //Checking the connection and raising an error if the connection failed
         try {
