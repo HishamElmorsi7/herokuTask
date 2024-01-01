@@ -17,8 +17,14 @@ class BookRepository implements InterfaceProductRepository
 
     public function connectDb()
     {
-        $dbHandler = new DatabaseHandler();
-        $this->pdo = $dbHandler->connect();
+        try {
+            $dbHandler = new DatabaseHandler();
+            $this->pdo = $dbHandler->connect();    
+        } catch (PDOException $e) {
+            error_log('Database connection failed: ' . $e->getMessage());
+            throw $e;
+        }
+
     }
 
 
