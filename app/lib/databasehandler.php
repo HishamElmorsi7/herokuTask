@@ -14,7 +14,7 @@ class DatabaseHandler
     public function __construct()
     {
         $dbUrl = getenv('DATABASE_URL');
-        $dbInfo = parseUrl($dbUrl);
+        $dbInfo = parse_url($dbUrl);
         $this->host = $dbInfo('host');
         $this->port = $dbInfo('port');
         $this->user = $dbInfo('user');
