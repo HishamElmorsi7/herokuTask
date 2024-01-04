@@ -6,29 +6,25 @@ class DatabaseHandler
 
     // Database handler attributes
     private $host;
-    private $port;
-    private $user;
+    private $name;
     private $pwd;
     private $dbname;
-    
+
     public function __construct()
     {
-        $dbUrl = getenv('DATABASE_URL');
-        $dbInfo = parse_url($dbUrl);
-        $this->host = $dbInfo['host'];
-        $this->port = $dbInfo['port'];
-        $this->user = $dbInfo['user'];
-        $this->pwd = $dbInfo['pass'];
-        $this->dbname = ltrim($dbInfo["path"], "/");
+        $this->host = getenv('DB_HOST');
+        $this->name = getenv('USER');
+        $this->pwd = getenv('PWD');
+        $this->dbname = getenv('DB_NAME');
     }
 
     public function connect()
     {
-        $dns = "pgsql:host=" . $this->host . ";port=". $this->port . ";dbname=" . $this->dbname;
+        $dns = "pgsql:host=" . $this->host . ";port=5432;dbname=" . $this->dbname;
 
         //Checking the connection and raising an error if the connection failed
         try {
-            $pdo = new \PDO($dns, $this->user, $this->pwd);
+            $pdo = new \PDO($dns, $this->name, $this->pwd);
             $pdo->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
             return $pdo;
         } catch (\PDOException $e) {
