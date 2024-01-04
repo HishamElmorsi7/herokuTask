@@ -21,7 +21,7 @@ class DatabaseHandler
     public function connect()
     {
         $dns = "pgsql:host=" . $this->host . ";port=5432;dbname=" . $this->dbname;
-
+        echo $dns;
         //Checking the connection and raising an error if the connection failed
         try {
             $pdo = new \PDO($dns, $this->name, $this->pwd);
