@@ -15,10 +15,10 @@ class DatabaseHandler
     {
         $dbUrl = getenv('DATABASE_URL');
         $dbInfo = parse_url($dbUrl);
-        $this->host = $dbInfo('host');
-        $this->port = $dbInfo('port');
-        $this->user = $dbInfo('user');
-        $this->pwd = $dbInfo('pass');
+        $this->host = $dbInfo['host'];
+        $this->port = $dbInfo['port'];
+        $this->user = $dbInfo['user'];
+        $this->pwd = $dbInfo['pass'];
         $this->dbname = ltrim($dbInfo["path"], "/");
     }
 
