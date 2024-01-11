@@ -150,7 +150,14 @@ function validate_numericInput(input_id, alert_id) {
     //input name value
     let inputNumericVal = get_elementVal(input_id)
 
-    if (Number(inputNumericVal) < 0 || Number(inputNumericVal) == '-0') {
+    if(input_id == 'price' && inputNumericVal == 0) {
+        //hiding alert block
+        dontDisplay(alert_id)
+        return true;
+    }
+
+    if (Number(inputNumericVal) <= 0){
+
         //displaying alert block
         displayBlock(alert_id);
         //setting the content of alert dev
