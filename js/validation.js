@@ -211,7 +211,8 @@ function check_regex(inputval) {
 }
 
 function Correct_name(inputNameVal) {
-    return check_regex(inputNameVal) && !isNum(inputNameVal) && isFirstIndexLetter(inputNameVal)
+    return check_regex(inputNameVal) && !isNum(inputNameVal)
+    // return check_regex(inputNameVal) && !isNum(inputNameVal) && isFirstIndexLetter(inputNameVal)
 }
 
 
