@@ -5,7 +5,7 @@ trait RenderSpecialAttr
 {
     private function renderSpecialAttrOfDVD($product)
     {
-        $handledSizeAttr = round($product['size'], 2);
+        $handledSizeAttr = $product['size'];
         $toBerRenderedSpecialAttr =  'Size: ' . $handledSizeAttr . ' MB';
 
         return $toBerRenderedSpecialAttr;
@@ -13,7 +13,7 @@ trait RenderSpecialAttr
 
     private function renderSpecialAttrOfBook($product)
     {
-        $handledWeightAttr = round($product['weight'], 2);
+        $handledWeightAttr = $product['weight'];
         $toBerRenderedSpecialAttr =  'Weight: ' . $handledWeightAttr . ' KG';
 
         return $toBerRenderedSpecialAttr;
@@ -22,9 +22,9 @@ trait RenderSpecialAttr
 
     private function renderSpecialAttrOfFurniture($product)
     {
-        $handledWidthAttr  = round($product['width'], 2);
-        $handledLengthAttr = round($product['length'], 2);
-        $handledHeightAttr = round($product['height'], 2);
+        $handledWidthAttr  = $product['width'];
+        $handledLengthAttr = $product['length'];
+        $handledHeightAttr = $product['height'];
         // showing furniture dimensions in form width x length x height
         $toBerRenderedSpecialAttr =  'Dimensions: '. $handledWidthAttr .'x'. $handledLengthAttr . 'x' . $handledHeightAttr;
 
