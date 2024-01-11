@@ -93,7 +93,7 @@ class FurnitureRepository implements InterfaceProductRepository
 
         $stmt->execute();
     }
-    
+
     public function checkSku($sku)
     {
         $query = "SELECT * FROM items WHERE sku = :sku";
@@ -103,9 +103,9 @@ class FurnitureRepository implements InterfaceProductRepository
         
         $result = $stmt->fetchColumn();
         if($result > 0){
-            return true
+            return true;
         } else {
-            return false
+            return false;
         }
     }
 }

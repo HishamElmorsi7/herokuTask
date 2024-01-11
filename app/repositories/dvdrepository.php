@@ -96,9 +96,9 @@ class DvdRepository implements InterfaceProductRepository
         
         $result = $stmt->fetchColumn();
         if($result > 0){
-            return true
+            return true;
         } else {
-            return false
+            return false;
         }
     }
 }
