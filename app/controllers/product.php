@@ -66,7 +66,7 @@ class Product extends AbstractController
             $sku = $product -> getSku();
 
             if($productRepo -> checkSku($sku)){
-                echo '<script type="text/javascript">alert("SKU already exists!")</script>';
+                echo '<script type="text/javascript">alert("SKU already exists! Please Enter another sku ;)")</script>';
             } else {
                 // saving the product
                 $productRepo->save($product);
