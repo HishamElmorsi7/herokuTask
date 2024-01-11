@@ -34,7 +34,7 @@
                             <!-- showing Product name -->
                             <h6><?php echo $product['name'] ?></h6>
                             <!-- showing Product price -->
-                            <h6><?php echo round($product['price'], 2).' $' ?></h6>
+                            <h6><?php echo round($product['price'], 3).' $' ?></h6>
                             <!-- showing Product size -->
                             <h6><?php echo $idsWithSpecialAttrs[ $product['item_id'] ]?></h6>
                         </div>
