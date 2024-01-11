@@ -61,14 +61,23 @@ class Product extends AbstractController
 
             // create a new product obj ( new model)
             $product = $this -> createProduct($productType);
-
             // create a new product repo
             $productRepo = $this -> createProductRepo($productType);
+            $sku = $product -> getSku();
 
-            // saving the product
-            $productRepo->save($product);
+            if($productRepo -> checkSku()){
+                echo '<script type="text/javascript">alert("SKU already exists!")</script>';
+            } else {
+                // saving the product
+                $productRepo->save($product);
 
-            header('Location: /');
+                header('Location: /');
+                exit;
+            }
+
+
+
+
         }
 
 

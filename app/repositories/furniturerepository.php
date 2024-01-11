@@ -93,4 +93,19 @@ class FurnitureRepository implements InterfaceProductRepository
 
         $stmt->execute();
     }
+    
+    public function checkSku($sku)
+    {
+        $query = "SELECT * FROM items WHERE sku = :sku";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindParam(':sku', $sku);
+        $stmt->execute();
+        
+        $result = $stmt->fetchColumn();
+        if($result > 0){
+            return true
+        } else {
+            return false
+        }
+    }
 }

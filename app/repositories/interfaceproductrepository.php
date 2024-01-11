@@ -13,4 +13,6 @@ interface InterfaceProductRepository
     public function getAllProducts();
     // delete a specific product type from the db
     public function delete($id);
+    // check if sku exists
+    public function checkSku($sku);
 }
